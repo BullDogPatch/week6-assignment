@@ -67,7 +67,9 @@ function App() {
         setTotalCookies={setTotalCookies}
         incrementCookie={incrementCookie}
       />
-      <p>You are currently gaining: {cps} cookies per second</p>
+      <p className='cookies-per-second'>
+        You are currently gaining: {cps} cookies per second
+      </p>
       <ul className='upgrades-shop'>
         {upgrades.map((upgrade) => (
           <UgradeItem

@@ -3,9 +3,10 @@
   padding: 1.25rem;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 550px) {
   .upgrade {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 }
