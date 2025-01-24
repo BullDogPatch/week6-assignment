@@ -12,6 +12,7 @@
 - display updated cps when purchased upgrade ✅
 - add state for error message if not able to purchase upgrade ✅
 - display not enough cookies message when user does not have enough cookies ✅
+- add reset button
 
 - upgrade button disabled until enough cookies to buy upgrade, so that when enough cookies the buttons light up
 
