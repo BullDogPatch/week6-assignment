@@ -29,7 +29,17 @@ function App() {
   }, []);
 
   const handlePurchaseCookie = (upgrade) => {
-    console.log(upgrade);
+    if (totalCookies < upgrade.cost) {
+      setTimeout(() => {
+        setNotEnoughCookiesMessage(true);
+      }, 100);
+      setTimeout(() => {
+        setNotEnoughCookiesMessage(false);
+      }, 1000);
+    } else {
+      setTotalCookies((cookies) => cookies - upgrade.cost);
+      setCps((cookiePerSec) => cookiePerSec + upgrade.increase);
+    }
   };
 
   return (
