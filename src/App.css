@@ -8,6 +8,7 @@
 }
 
 .cookies-per-second {
+  font-size: 1.4rem;
   text-align: center;
 }
 
@@ -22,7 +23,8 @@ ul {
   align-items: center;
 }
 
-@media (min-width: 500px) {
-  .upgrades-shop {
+@media (max-width: 550px) {
+  .cookies-per-second {
+    font-size: 1rem;
   }
 }
