@@ -55,7 +55,8 @@ function App() {
 
       <CookieSVG incrementCookie={incrementCookie} />
       <p className='cookies-per-second'>
-        You are currently gaining: {cps} cookies per second
+        You are currently gaining: {cps} {cps > 1 ? 'cookies' : 'cookie'} per
+        second
       </p>
       <ul className='upgrades-shop'>
         {upgrades.map((upgrade) => (
