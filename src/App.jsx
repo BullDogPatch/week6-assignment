@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
-import UgradeItem from './components/UpgradeIitem/UpgradeItem';
+import UgradeItem from './components/UpgradeItem/UpgradeItem';
 import './App.css';
 import CookieSVG from './components/CookieSVG/CookieSvg';
 
