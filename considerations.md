@@ -16,8 +16,8 @@
 
 - upgrade button disabled until enough cookies to buy upgrade, so that when enough cookies the buttons light up
 
-- refactor into separate files
+- refactor into separate files ✅
 - style app
-- add sounds like I did in week 3
+- add sounds like I did in week 3 ✅
 - be able to see how many of each upgrade is purchased
 - try to use `localStorage`
