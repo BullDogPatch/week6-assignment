@@ -46,6 +46,9 @@ function App() {
     <div>
       <Header />
       <p>You have {totalCookies} cookies</p>
+      {notEnoughCookiesMessage && (
+        <p>Not enough cookies to buy the upgrade :(</p>
+      )}
       <img
         src={cookie}
         alt='cookie'
