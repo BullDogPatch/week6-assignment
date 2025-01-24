@@ -13,6 +13,8 @@
 - add state for error message if not able to purchase upgrade ✅
 - display not enough cookies message when user does not have enough cookies ✅
 
+- upgrade button disabled until enough cookies to buy upgrade, so that when enough cookies the buttons light up
+
 - refactor into separate files
 - style app
 - add sounds like I did in week 3
