@@ -29,6 +29,12 @@ function App() {
     fetchUpgrades();
   }, []);
 
+  const incrementCookie = () => {
+    setTotalCookies((cookie) => cookie + 1);
+    const audio = new Audio('public/sounds/pop-1-35897.mp3');
+    audio.play();
+  };
+
   const handlePurchaseCookie = (upgrade) => {
     if (totalCookies < upgrade.cost) {
       setTimeout(() => {
@@ -38,6 +44,8 @@ function App() {
         setNotEnoughCookiesMessage(false);
       }, 1000);
     } else {
+      const audio = new Audio('public/sounds/ka-ching.mp3');
+      audio.play();
       setTotalCookies((cookies) => cookies - upgrade.cost);
       setCps((cookiePerSec) => cookiePerSec + upgrade.increase);
     }
@@ -55,7 +63,10 @@ function App() {
       {notEnoughCookiesMessage && (
         <p>Not enough cookies to buy the upgrade :(</p>
       )}
-      <CookieSVG setTotalCookies={setTotalCookies} />
+      <CookieSVG
+        setTotalCookies={setTotalCookies}
+        incrementCookie={incrementCookie}
+      />
       <p>You are currently gaining: {cps} cookies per second</p>
       <ul>
         {upgrades.map((upgrade) => (
