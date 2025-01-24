@@ -36,14 +36,7 @@ function App() {
   };
 
   const handlePurchaseCookie = (upgrade) => {
-    if (totalCookies < upgrade.cost) {
-      setTimeout(() => {
-        setNotEnoughCookiesMessage(true);
-      }, 100);
-      setTimeout(() => {
-        setNotEnoughCookiesMessage(false);
-      }, 1000);
-    } else {
+    if (totalCookies >= upgrade.cost) {
       const audio = new Audio('/sounds/ka-ching.mp3');
       audio.play();
       setTotalCookies((cookies) => cookies - upgrade.cost);
@@ -63,10 +56,7 @@ function App() {
       {notEnoughCookiesMessage && (
         <p>Not enough cookies to buy the upgrade :(</p>
       )}
-      <CookieSVG
-        setTotalCookies={setTotalCookies}
-        incrementCookie={incrementCookie}
-      />
+      <CookieSVG incrementCookie={incrementCookie} />
       <p className='cookies-per-second'>
         You are currently gaining: {cps} cookies per second
       </p>

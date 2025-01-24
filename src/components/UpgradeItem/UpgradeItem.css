@@ -3,6 +3,11 @@
   padding: 1.25rem;
 }
 
+.button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
 @media (min-width: 550px) {
   .upgrade {
     display: flex;

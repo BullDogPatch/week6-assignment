@@ -1,7 +1,7 @@
 import cookie from '../../assets/cookie.svg';
 import './CookieSVG.css';
 
-const CookieSVG = ({ setTotalCookies, incrementCookie }) => {
+const CookieSVG = ({ incrementCookie }) => {
   return (
     <img
       className='cookie'

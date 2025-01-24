@@ -8,6 +8,7 @@ const UgradeItem = ({ upgrade, totalCookies, handlePurchaseCookie }) => {
         <p>$C {upgrade.cost}</p>
         <p>+{upgrade.increase}</p>
         <button
+          className='button'
           disabled={totalCookies < upgrade.cost}
           onClick={() => handlePurchaseCookie(upgrade)}
         >
