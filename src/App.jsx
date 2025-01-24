@@ -20,11 +20,21 @@ function App() {
       );
       const data = await response.json();
       console.log(data);
+      setUpgrades(data);
     };
     fetchUpgrades();
   }, []);
 
-  return <h1>Cookie Clicker {totalCookies}</h1>;
+  return (
+    <div>
+      Cookie Clicker {totalCookies}
+      <ul>
+        {upgrades.map((ugrade) => (
+          <li key={ugrade.id}>{ugrade.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default App;
