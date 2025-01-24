@@ -31,7 +31,7 @@ function App() {
 
   const incrementCookie = () => {
     setTotalCookies((cookie) => cookie + 1);
-    const audio = new Audio('sounds/pop-1-35897.mp3');
+    const audio = new Audio('/sounds/pop-1-35897.mp3');
     audio.play();
   };
 
@@ -44,7 +44,7 @@ function App() {
         setNotEnoughCookiesMessage(false);
       }, 1000);
     } else {
-      const audio = new Audio('sounds/ka-ching.mp3');
+      const audio = new Audio('/sounds/ka-ching.mp3');
       audio.play();
       setTotalCookies((cookies) => cookies - upgrade.cost);
       setCps((cookiePerSec) => cookiePerSec + upgrade.increase);
