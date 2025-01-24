@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
 import UgradeItem from './components/UpgradeItem/UpgradeItem';
-import './App.css';
 import CookieSVG from './components/CookieSVG/CookieSvg';
+import './App.css';
 
 function App() {
   const [totalCookies, setTotalCookies] = useState(0);
@@ -68,7 +68,7 @@ function App() {
         incrementCookie={incrementCookie}
       />
       <p>You are currently gaining: {cps} cookies per second</p>
-      <ul>
+      <ul className='upgrades-shop'>
         {upgrades.map((upgrade) => (
           <UgradeItem
             key={upgrade.id}
