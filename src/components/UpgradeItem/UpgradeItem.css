@@ -3,6 +3,10 @@
   padding: 1.25rem;
 }
 
+/* .upgrade p {
+  text-align: left;
+} */
+
 .button:disabled {
   cursor: not-allowed;
   pointer-events: all !important;
