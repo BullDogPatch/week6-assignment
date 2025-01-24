@@ -23,11 +23,14 @@ function App() {
         'https://cookie-upgrade-api.vercel.app/api/upgrades'
       );
       const data = await response.json();
-      console.log(data);
       setUpgrades(data);
     };
     fetchUpgrades();
   }, []);
+
+  const handlePurchaseCookie = (upgrade) => {
+    console.log(upgrade);
+  };
 
   return (
     <div>
@@ -40,12 +43,12 @@ function App() {
       />
       <p>You are currently gaining: {cps} cookies per second</p>
       <ul>
-        {upgrades.map((ugrade) => (
-          <li key={ugrade.id}>
-            <p>{ugrade.name}</p>
-            <p>$C {ugrade.cost}</p>
-            <p>+{ugrade.increase}</p>
-            <button>purchase</button>
+        {upgrades.map((upgrade) => (
+          <li key={upgrade.id}>
+            <p>{upgrade.name}</p>
+            <p>$C {upgrade.cost}</p>
+            <p>+{upgrade.increase}</p>
+            <button onClick={() => handlePurchaseCookie(upgrade)}>Buy</button>
           </li>
         ))}
       </ul>
