@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import cookie from './assets/cookie.svg';
-import './App.css';
 import Header from './components/Header/Header';
+import UgradeItem from './components/UpgradeIitem/UpgradeItem';
+import './App.css';
+import CookieSVG from './components/CookieSVG/CookieSvg';
 
 function App() {
   const [totalCookies, setTotalCookies] = useState(0);
@@ -54,25 +55,16 @@ function App() {
       {notEnoughCookiesMessage && (
         <p>Not enough cookies to buy the upgrade :(</p>
       )}
-      <img
-        src={cookie}
-        alt='cookie'
-        onClick={() => setTotalCookies((cookie) => cookie + 1)}
-      />
+      <CookieSVG setTotalCookies={setTotalCookies} />
       <p>You are currently gaining: {cps} cookies per second</p>
       <ul>
         {upgrades.map((upgrade) => (
-          <li key={upgrade.id}>
-            <p>{upgrade.name}</p>
-            <p>$C {upgrade.cost}</p>
-            <p>+{upgrade.increase}</p>
-            <button
-              disabled={totalCookies < upgrade.cost}
-              onClick={() => handlePurchaseCookie(upgrade)}
-            >
-              Buy
-            </button>
-          </li>
+          <UgradeItem
+            key={upgrade.id}
+            upgrade={upgrade}
+            totalCookies={totalCookies}
+            handlePurchaseCookie={handlePurchaseCookie}
+          />
         ))}
       </ul>
       <button onClick={handleReset}>reset</button>
