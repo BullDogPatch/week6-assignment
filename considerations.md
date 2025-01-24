@@ -14,7 +14,7 @@
 - display not enough cookies message when user does not have enough cookies ✅
 - add reset button ✅
 
-- upgrade button disabled until enough cookies to buy upgrade, so that when enough cookies the buttons light up
+- upgrade button disabled until enough cookies to buy upgrade, so that when enough cookies the buttons light up ✅
 
 - refactor into separate files ✅
 - style app
