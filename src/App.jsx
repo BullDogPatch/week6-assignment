@@ -53,7 +53,9 @@ function App() {
       <Header />
       <p>You have {totalCookies} cookies</p>
 
-      <CookieSVG incrementCookie={incrementCookie} />
+      <div className='cookie-incrementer'>
+        <CookieSVG incrementCookie={incrementCookie} />
+      </div>
       <p className='cookies-per-second'>
         You are currently gaining: {cps} {cps > 1 ? 'cookies' : 'cookie'} per
         second

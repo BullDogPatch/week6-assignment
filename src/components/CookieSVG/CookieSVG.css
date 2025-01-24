@@ -1,5 +1,11 @@
+.cookie-incrementer {
+  margin: 1.825rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cookie {
-  margin: 1.875rem auto;
   cursor: pointer;
   user-select: none;
 }
