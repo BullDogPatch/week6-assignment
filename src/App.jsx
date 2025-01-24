@@ -7,6 +7,7 @@ function App() {
   const [totalCookies, setTotalCookies] = useState(0);
   const [cps, setCps] = useState(1);
   const [upgrades, setUpgrades] = useState([]);
+  const [notEnoughCookiesMessage, setNotEnoughCookiesMessage] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
