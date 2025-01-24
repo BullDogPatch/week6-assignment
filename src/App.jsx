@@ -42,6 +42,11 @@ function App() {
     }
   };
 
+  const handleReset = () => {
+    setCps(1);
+    setTotalCookies(0);
+  };
+
   return (
     <div>
       <Header />
@@ -70,6 +75,7 @@ function App() {
           </li>
         ))}
       </ul>
+      <button onClick={handleReset}>reset</button>
     </div>
   );
 }
