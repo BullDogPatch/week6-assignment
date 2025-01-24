@@ -3,7 +3,7 @@
 - create cps state ✅
 - create cookieTotal state ✅
 - create upgrades state ✅
-- create a timer with `setInteravl` and update cps ✅
+- create a timer with `setInterval` and update cps ✅
 - fetch upgrades from api ✅
 - render upgrades ✅
 - display totalCookies ✅
