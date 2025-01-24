@@ -8,7 +8,6 @@ function App() {
   const [totalCookies, setTotalCookies] = useState(0);
   const [cps, setCps] = useState(1);
   const [upgrades, setUpgrades] = useState([]);
-  const [notEnoughCookiesMessage, setNotEnoughCookiesMessage] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,9 +52,7 @@ function App() {
     <div>
       <Header />
       <p>You have {totalCookies} cookies</p>
-      {notEnoughCookiesMessage && (
-        <p>Not enough cookies to buy the upgrade :(</p>
-      )}
+
       <CookieSVG incrementCookie={incrementCookie} />
       <p className='cookies-per-second'>
         You are currently gaining: {cps} cookies per second
