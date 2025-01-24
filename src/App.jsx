@@ -19,11 +19,17 @@ function App() {
 
   useEffect(() => {
     const fetchUpgrades = async () => {
-      const response = await fetch(
-        'https://cookie-upgrade-api.vercel.app/api/upgrades'
-      );
-      const data = await response.json();
-      setUpgrades(data);
+      try {
+        const response = await fetch(
+          'https://cookie-upgrade-api.vercel.app/api/upgrades'
+        );
+        const data = await response.json();
+        setUpgrades(data);
+      } catch (error) {
+        console.log(
+          `Sorry the Hamster has died on his wheel and there is no more electricty to keep the server up.`
+        );
+      }
     };
     fetchUpgrades();
   }, []);
