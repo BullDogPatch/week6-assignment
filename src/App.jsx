@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import cookie from './assets/cookie.svg';
 import './App.css';
+import Header from './components/Header/Header';
 
 function App() {
   const [totalCookies, setTotalCookies] = useState(0);
@@ -28,7 +30,12 @@ function App() {
 
   return (
     <div>
-      Cookie Clicker {totalCookies}
+      <Header /> {totalCookies}
+      <img
+        src={cookie}
+        alt='cookie'
+        onClick={() => setTotalCookies((cookie) => cookie + 1)}
+      />
       <ul>
         {upgrades.map((ugrade) => (
           <li key={ugrade.id}>
