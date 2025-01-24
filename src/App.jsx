@@ -30,12 +30,14 @@ function App() {
 
   return (
     <div>
-      <Header /> {totalCookies}
+      <Header />
+      <p>You have {totalCookies} cookies</p>
       <img
         src={cookie}
         alt='cookie'
         onClick={() => setTotalCookies((cookie) => cookie + 1)}
       />
+      <p>You are currently gaining: {cps} cookies per second</p>
       <ul>
         {upgrades.map((ugrade) => (
           <li key={ugrade.id}>
