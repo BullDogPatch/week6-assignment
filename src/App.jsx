@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
   const [totalCookies, setTotalCookies] = useState(0);
@@ -30,7 +31,12 @@ function App() {
       Cookie Clicker {totalCookies}
       <ul>
         {upgrades.map((ugrade) => (
-          <li key={ugrade.id}>{ugrade.name}</li>
+          <li key={ugrade.id}>
+            <p>{ugrade.name}</p>
+            <p>$C {ugrade.cost}</p>
+            <p>+{ugrade.increase}</p>
+            <button>purchase</button>
+          </li>
         ))}
       </ul>
     </div>
