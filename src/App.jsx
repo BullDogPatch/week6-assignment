@@ -6,11 +6,11 @@ import './App.css';
 
 function App() {
   const [totalCookies, setTotalCookies] = useState(
-    () => JSON.parse(localStorage.getItem('gameState')).totalCookies || 0
+    () => JSON.parse(localStorage.getItem('gameState'))?.totalCookies || 0
   );
 
   const [cps, setCps] = useState(
-    () => JSON.parse(localStorage.getItem('gameState')).cps || 1
+    () => JSON.parse(localStorage.getItem('gameState'))?.cps || 1
   );
 
   const [upgrades, setUpgrades] = useState([]);
