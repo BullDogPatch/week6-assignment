@@ -20,4 +20,4 @@
 - style app
 - add sounds like I did in week 3 ✅
 - be able to see how many of each upgrade is purchased
-- try to use `localStorage`
+- try to use `localStorage` ✅ (sort of)
