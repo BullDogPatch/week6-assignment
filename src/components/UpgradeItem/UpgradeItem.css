@@ -32,6 +32,8 @@ button:focus-visible {
 .button:disabled {
   cursor: not-allowed;
   pointer-events: all !important;
+  background-color: #2b2a2a;
+  border-color: #2b2a2a;
 }
 
 @media (min-width: 550px) {
