@@ -34,7 +34,8 @@ function App() {
     fetchUpgrades();
   }, []);
 
-  const incrementCookie = () => {
+  const incrementCookie = (e) => {
+    console.log(e.clientX);
     setTotalCookies((cookie) => cookie + 1);
     const audio = new Audio('/sounds/pop-1-35897.mp3');
     audio.play();
