@@ -1,9 +1,11 @@
 import Heading from '../Heading/Heading';
+import './Header.css';
 
 const Header = () => {
   return (
-    <header>
+    <header className='header'>
       <Heading />
+      <button>theme</button>
     </header>
   );
 };
