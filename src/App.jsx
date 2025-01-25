@@ -5,9 +5,24 @@ import CookieSVG from './components/CookieSVG/CookieSvg';
 import './App.css';
 
 function App() {
-  const [totalCookies, setTotalCookies] = useState(0);
-  const [cps, setCps] = useState(1);
+  const [totalCookies, setTotalCookies] = useState(
+    () => JSON.parse(localStorage.getItem('gameState')).totalCookies || 0
+  );
+
+  const [cps, setCps] = useState(
+    () => JSON.parse(localStorage.getItem('gameState')).cps || 1
+  );
+
   const [upgrades, setUpgrades] = useState([]);
+
+  useEffect(() => {
+    const gameState = {
+      totalCookies,
+      cps,
+    };
+
+    localStorage.setItem('gameState', JSON.stringify(gameState));
+  }, [totalCookies, cps]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,7 +42,7 @@ function App() {
         setUpgrades(data);
       } catch (error) {
         console.log(
-          `Sorry the Hamster has died on his wheel and there is no more electricty to keep the server up.`
+          `Sorry, the Hamster has died on his wheel and there is no more electricity to keep the server up.`
         );
       }
     };
@@ -35,7 +50,8 @@ function App() {
   }, []);
 
   const incrementCookie = () => {
-    setTotalCookies((cookie) => cookie + 1);
+    const incrementValue = 1;
+    setTotalCookies((cookie) => cookie + incrementValue);
     const audio = new Audio('/sounds/pop-1-35897.mp3');
     audio.play();
   };
@@ -52,6 +68,7 @@ function App() {
   const handleReset = () => {
     setCps(1);
     setTotalCookies(0);
+    localStorage.removeItem('gameState');
   };
 
   return (
