@@ -80,6 +80,8 @@ function App() {
   };
 
   const handleReset = () => {
+    const audio = new Audio('/sounds/quick-fart-jam-fx-1-00-00.mp3');
+    audio.play();
     setCps(1);
     setTotalCookies(0);
     localStorage.removeItem('gameState');

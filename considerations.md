@@ -17,8 +17,8 @@
 - upgrade button disabled until enough cookies to buy upgrade, so that when enough cookies the buttons light up ✅
 
 - refactor into separate files ✅
-- style app
+- style app ✅
 - add sounds like I did in week 3 ✅
 - be able to see how many of each upgrade is purchased
 - try to use `localStorage` ✅ (sort of)
-- see if I can get a dark/light mode working
+- see if I can get a dark/light mode working ✅
