@@ -57,7 +57,7 @@ function App() {
   return (
     <div>
       <Header />
-      <p>You have {totalCookies} cookies</p>
+      <p className='total-cookies'>You have {totalCookies} cookies</p>
 
       <div className='cookie-incrementer'>
         <CookieSVG incrementCookie={incrementCookie} />

@@ -17,6 +17,10 @@
   font-family: Poppins;
 }
 
+.total-cookies {
+  text-align: center;
+}
+
 .cookies-per-second {
   font-size: 1.4rem;
   text-align: center;
