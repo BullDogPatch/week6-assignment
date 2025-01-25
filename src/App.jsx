@@ -15,6 +15,7 @@ function App() {
   );
 
   const [upgrades, setUpgrades] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -46,14 +47,17 @@ function App() {
 
   useEffect(() => {
     const fetchUpgrades = async () => {
+      setLoading(true);
       try {
         const response = await fetch(
           'https://cookie-upgrade-api.vercel.app/api/upgrades'
         );
         const data = await response.json();
         setUpgrades(data);
+        setLoading(false);
       } catch (error) {
         console.log('Error fetching upgrades:', error);
+        setLoading(false);
       }
     };
     fetchUpgrades();
@@ -92,6 +96,7 @@ function App() {
         second
       </p>
       <ul className='upgrades-shop'>
+        {loading && 'fetching upgrades'}
         {upgrades.map((upgrade) => (
           <UgradeItem
             key={upgrade.id}
