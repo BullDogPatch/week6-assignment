@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import UgradeItem from './components/UpgradeItem/UpgradeItem';
 import CookieSVG from './components/CookieSVG/CookieSvg';
 import './App.css';
+import Footer from './components/Footer/Footer';
 
 // dark theme is rework of this (https://selftaughttxg.com/2023/05-23/learn-local-storage-in-react-create-a-light-and-dark-theme-switcher-application/#:~:text=Working%20with%20local%20storage%20in%20React,-To%20work%20with&text=We%20use%20the%20useState%20hook,user%20toggles%20the%20theme%20value.)
 function App() {
@@ -109,6 +110,7 @@ function App() {
       <button className='reset-button' onClick={handleReset}>
         Reset
       </button>
+      <Footer />
     </>
   );
 }
