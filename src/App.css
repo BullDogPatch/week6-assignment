@@ -10,6 +10,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  text-align: center;
+}
+
 body.dark {
   background-color: #242424;
   color: rgba(255, 255, 255, 0.87);
