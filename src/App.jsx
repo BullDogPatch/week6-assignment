@@ -14,6 +14,7 @@ function App() {
   );
 
   const [upgrades, setUpgrades] = useState([]);
+  const [darkTheme, setDarkTheme] = useState(true);
 
   useEffect(() => {
     const gameState = {
@@ -71,9 +72,27 @@ function App() {
     localStorage.removeItem('gameState');
   };
 
+  const darkThemeToggle = () => {
+    console.log(darkTheme);
+    setDarkTheme((d) => !d);
+  };
+
+  useEffect(() => {
+    const body = document.body;
+    if (darkTheme) {
+      body.classList.add('dark');
+      body.classList.remove('light');
+      localStorage.setItem('dark-mode', 'enabled');
+    } else {
+      body.classList.add('light');
+      body.classList.remove('dark');
+      localStorage.setItem('dark-mode', 'disabled');
+    }
+  }, [darkTheme]);
+
   return (
     <div>
-      <Header />
+      <Header darkTheme={darkTheme} darkThemeToggle={darkThemeToggle} />
       <p className='total-cookies'>You have {totalCookies} cookies</p>
 
       <div className='cookie-incrementer'>

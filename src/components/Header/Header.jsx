@@ -1,11 +1,13 @@
 import Heading from '../Heading/Heading';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ darkTheme, darkThemeToggle }) => {
   return (
     <header className='header'>
       <Heading />
-      <button>theme</button>
+      <button className='theme-button' onClick={darkThemeToggle}>
+        {darkTheme ? '🌙' : '☀️'}
+      </button>
     </header>
   );
 };
