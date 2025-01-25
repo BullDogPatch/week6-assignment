@@ -10,14 +10,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-:root {
-  --bg-color: #242424;
-  --text-color: rgba(255, 255, 255, 0.87);
-}
-
 body.dark {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 body.light {
