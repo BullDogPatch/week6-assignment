@@ -16,10 +16,9 @@ function App() {
 
   const [upgrades, setUpgrades] = useState([]);
 
-  // Set default theme as 'dark'
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
-    return savedTheme ? savedTheme : 'dark'; // Default to 'dark'
+    return savedTheme ? savedTheme : 'dark';
   });
 
   const toggleTheme = () => {
@@ -29,7 +28,6 @@ function App() {
   };
 
   useEffect(() => {
-    // Apply the theme to the body element
     document.body.className = theme;
   }, [theme]);
 
