@@ -47,6 +47,17 @@ ul {
   align-items: center;
 }
 
+.reset-button {
+  cursor: pointer;
+  padding: 0.313rem;
+  background-color: lightgray;
+  width: 6.25rem;
+  margin-top: 0.6rem;
+  border-radius: 3px;
+  border: 2px solid red;
+  font-weight: 600;
+}
+
 @media (max-width: 550px) {
   .cookies-per-second {
     font-size: 1rem;

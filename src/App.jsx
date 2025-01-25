@@ -85,8 +85,8 @@ function App() {
   };
 
   return (
-    <div>
-      <Header theme={theme} setTheme={toggleTheme} />
+    <>
+      <Header theme={theme} setTheme={toggleTheme} handleReset={handleReset} />
       <p className='total-cookies'>You have {totalCookies} cookies</p>
       <div className='cookie-incrementer'>
         <CookieSVG incrementCookie={incrementCookie} />
@@ -106,8 +106,10 @@ function App() {
           />
         ))}
       </ul>
-      <button onClick={handleReset}>Reset</button>
-    </div>
+      <button className='reset-button' onClick={handleReset}>
+        Reset
+      </button>
+    </>
   );
 }
 

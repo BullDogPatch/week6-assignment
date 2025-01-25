@@ -1,5 +1,11 @@
 .heading {
   color: red;
-  text-align: center;
   padding: 1.25rem;
+}
+
+@media (max-width: 500px) {
+  .heading {
+    padding-left: 0.6rem;
+    font-size: 1.3rem;
+  }
 }
