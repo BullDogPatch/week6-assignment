@@ -8,6 +8,7 @@ function App() {
   const [totalCookies, setTotalCookies] = useState(0);
   const [cps, setCps] = useState(1);
   const [upgrades, setUpgrades] = useState([]);
+  const [animations, setAnimations] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,9 +35,9 @@ function App() {
     fetchUpgrades();
   }, []);
 
-  const incrementCookie = (e) => {
-    console.log(e.clientX);
-    setTotalCookies((cookie) => cookie + 1);
+  const incrementCookie = () => {
+    const incrementValue = 1;
+    setTotalCookies((cookie) => cookie + incrementValue);
     const audio = new Audio('/sounds/pop-1-35897.mp3');
     audio.play();
   };
