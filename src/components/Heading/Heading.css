@@ -5,8 +5,8 @@
   font-size: 1rem;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 550px) {
   .heading {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 }

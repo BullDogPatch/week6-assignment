@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 0.938rem 2.5rem;
 }
 
 .header button.theme-button {
@@ -21,7 +21,7 @@
   justify-content: center;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   .header {
     padding: 0.3em 0.6em;
   }
@@ -30,6 +30,5 @@
     width: 2.5rem;
     height: 2.5rem;
     font-size: 1rem;
-    padding: 0.4em 0.8em;
   }
 }
