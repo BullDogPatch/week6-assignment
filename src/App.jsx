@@ -61,7 +61,7 @@ function App() {
     audio.play();
   };
 
-  const handlePurchaseCookie = (upgrade) => {
+  const handlePurchaseUpgrade = (upgrade) => {
     if (totalCookies >= upgrade.cost) {
       const audio = new Audio('/sounds/ka-ching.mp3');
       audio.play();
@@ -101,9 +101,7 @@ function App() {
       <div className='upgrades-container'>
         <ul className='upgrades-shop'>
           {loading ? (
-            <p>
-              Fetching upgrades...
-            </p> /* This will be centered due to the flex styles */
+            <p>Fetching upgrades...</p>
           ) : (
             upgrades.map((upgrade) => {
               const count =
@@ -114,7 +112,7 @@ function App() {
                   key={upgrade.id}
                   upgrade={upgrade}
                   totalCookies={totalCookies}
-                  handlePurchaseCookie={handlePurchaseCookie}
+                  handlePurchaseUpgrade={handlePurchaseUpgrade}
                   count={count}
                 />
               );

@@ -1,5 +1,10 @@
 import './UpgradeItem.css';
-const UgradeItem = ({ upgrade, totalCookies, handlePurchaseCookie, count }) => {
+const UgradeItem = ({
+  upgrade,
+  totalCookies,
+  handlePurchaseUpgrade,
+  count,
+}) => {
   return (
     <>
       <li key={upgrade.id} className='upgrade'>
@@ -10,7 +15,7 @@ const UgradeItem = ({ upgrade, totalCookies, handlePurchaseCookie, count }) => {
         <button
           className='button'
           disabled={totalCookies < upgrade.cost}
-          onClick={() => handlePurchaseCookie(upgrade)}
+          onClick={() => handlePurchaseUpgrade(upgrade)}
         >
           Buy
         </button>
