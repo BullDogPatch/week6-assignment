@@ -88,7 +88,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className=''>
       <Header theme={theme} setTheme={toggleTheme} handleReset={handleReset} />
       <p className='total-cookies'>You have {totalCookies} cookies</p>
       <div className='cookie-incrementer'>
@@ -100,28 +100,33 @@ function App() {
       </p>
       <div className='upgrades-container'>
         <ul className='upgrades-shop'>
-          {loading && 'fetching upgrades'}
-          {upgrades.map((upgrade) => {
-            const count =
-              upgradesCount.find((item) => item.id === upgrade.id).count || 0;
-            return (
-              <UgradeItem
-                upgradesCount={upgradesCount}
-                key={upgrade.id}
-                upgrade={upgrade}
-                totalCookies={totalCookies}
-                handlePurchaseCookie={handlePurchaseCookie}
-                count={count}
-              />
-            );
-          })}
+          {loading ? (
+            <p>
+              Fetching upgrades...
+            </p> /* This will be centered due to the flex styles */
+          ) : (
+            upgrades.map((upgrade) => {
+              const count =
+                upgradesCount.find((item) => item.id === upgrade.id).count || 0;
+              return (
+                <UgradeItem
+                  upgradesCount={upgradesCount}
+                  key={upgrade.id}
+                  upgrade={upgrade}
+                  totalCookies={totalCookies}
+                  handlePurchaseCookie={handlePurchaseCookie}
+                  count={count}
+                />
+              );
+            })
+          )}
         </ul>
       </div>
       <button className='reset-button' onClick={handleReset}>
         Reset
       </button>
       <Footer />
-    </>
+    </div>
   );
 }
 
