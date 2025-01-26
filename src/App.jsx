@@ -5,6 +5,7 @@ import UgradeItem from './components/UpgradeItem/UpgradeItem';
 import CookieSVG from './components/CookieSVG/CookieSvg';
 import Footer from './components/Footer/Footer';
 import './App.css';
+import { useFetch } from './hooks/useFetch';
 
 // dark theme is rework of this (https://selftaughttxg.com/2023/05-23/learn-local-storage-in-react-create-a-light-and-dark-theme-switcher-application/#:~:text=Working%20with%20local%20storage%20in%20React,-To%20work%20with&text=We%20use%20the%20useState%20hook,user%20toggles%20the%20theme%20value.)
 function App() {
@@ -16,12 +17,9 @@ function App() {
     () => JSON.parse(localStorage.getItem('gameState'))?.cps || 1
   );
 
-  const [upgrades, setUpgrades] = useState([]);
   const [upgradesCount, setUpgradesCount] = useState(
     () => JSON.parse(localStorage.getItem('upgradesCount')) || upgradeData
   );
-
-  const [loading, setLoading] = useState(false);
 
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -55,23 +53,7 @@ function App() {
     return () => clearInterval(interval);
   }, [cps]);
 
-  useEffect(() => {
-    const fetchUpgrades = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(
-          'https://cookie-upgrade-api.vercel.app/api/upgrades'
-        );
-        const data = await response.json();
-        setUpgrades(data);
-        setLoading(false);
-      } catch (error) {
-        console.log('Error fetching upgrades:', error);
-        setLoading(false);
-      }
-    };
-    fetchUpgrades();
-  }, []);
+  const { upgrades, loading } = useFetch();
 
   const incrementCookie = () => {
     setTotalCookies((cookie) => cookie + 1);
@@ -100,6 +82,7 @@ function App() {
     audio.play();
     setCps(1);
     setTotalCookies(0);
+    setUpgradesCount(upgradeData);
     localStorage.removeItem('gameState');
     localStorage.removeItem('upgradesCount');
   };
