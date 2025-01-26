@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.938rem 2.5rem;
+  padding: 0.938rem 2rem;
 }
 
 .header button.theme-button {
