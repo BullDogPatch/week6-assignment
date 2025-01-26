@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
+import { upgradeData } from './lib/dataForUpgradesCount';
 import Header from './components/Header/Header';
 import UgradeItem from './components/UpgradeItem/UpgradeItem';
 import CookieSVG from './components/CookieSVG/CookieSvg';
-import './App.css';
 import Footer from './components/Footer/Footer';
+import './App.css';
 
 // dark theme is rework of this (https://selftaughttxg.com/2023/05-23/learn-local-storage-in-react-create-a-light-and-dark-theme-switcher-application/#:~:text=Working%20with%20local%20storage%20in%20React,-To%20work%20with&text=We%20use%20the%20useState%20hook,user%20toggles%20the%20theme%20value.)
 function App() {
@@ -16,6 +17,10 @@ function App() {
   );
 
   const [upgrades, setUpgrades] = useState([]);
+  const [upgradesCount, setUpgradesCount] = useState(
+    () => JSON.parse(localStorage.getItem('upgradesCount')) || upgradeData
+  );
+
   const [loading, setLoading] = useState(false);
 
   const [theme, setTheme] = useState(() => {
@@ -37,6 +42,10 @@ function App() {
     const gameState = { totalCookies, cps };
     localStorage.setItem('gameState', JSON.stringify(gameState));
   }, [totalCookies, cps]);
+
+  useEffect(() => {
+    localStorage.setItem('upgradesCount', JSON.stringify(upgradesCount));
+  }, [upgradesCount]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -76,6 +85,13 @@ function App() {
       audio.play();
       setTotalCookies((cookies) => cookies - upgrade.cost);
       setCps((cookiePerSec) => cookiePerSec + upgrade.increase);
+      setUpgradesCount((prev) =>
+        prev.map((upgradesCount) =>
+          upgradesCount.id === upgrade.id
+            ? { ...upgradesCount, count: upgradesCount.count + 1 }
+            : upgradesCount
+        )
+      );
     }
   };
 
@@ -85,6 +101,7 @@ function App() {
     setCps(1);
     setTotalCookies(0);
     localStorage.removeItem('gameState');
+    localStorage.removeItem('upgradesCount');
   };
 
   return (
@@ -98,17 +115,25 @@ function App() {
         You are currently gaining: {cps} {cps > 1 ? 'cookies' : 'cookie'} per
         second
       </p>
-      <ul className='upgrades-shop'>
-        {loading && 'fetching upgrades'}
-        {upgrades.map((upgrade) => (
-          <UgradeItem
-            key={upgrade.id}
-            upgrade={upgrade}
-            totalCookies={totalCookies}
-            handlePurchaseCookie={handlePurchaseCookie}
-          />
-        ))}
-      </ul>
+      <div className='upgrades-container'>
+        <ul className='upgrades-shop'>
+          {loading && 'fetching upgrades'}
+          {upgrades.map((upgrade) => {
+            const count =
+              upgradesCount.find((item) => item.id === upgrade.id).count || 0;
+            return (
+              <UgradeItem
+                upgradesCount={upgradesCount}
+                key={upgrade.id}
+                upgrade={upgrade}
+                totalCookies={totalCookies}
+                handlePurchaseCookie={handlePurchaseCookie}
+                count={count}
+              />
+            );
+          })}
+        </ul>
+      </div>
       <button className='reset-button' onClick={handleReset}>
         Reset
       </button>
