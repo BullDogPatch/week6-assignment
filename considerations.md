@@ -23,4 +23,4 @@
 - try to use `localStorage` ✅ (sort of)
 - see if I can get a dark/light mode working ✅
 
-- make custom hook to unclutter `App.jsx`, I know how to make custom fetch hook. I will also research how to make custom storage hook.
+- make custom hook to unclutter `App.jsx`, I know how to make custom fetch hook. I will also research how to make custom storage hook.✅
