@@ -49,6 +49,8 @@ I also made a custom `useFetch` hook, but that was very easy, I wanted to make t
 
 Error handling for not enough cookies started of as a piece of state that got set to true of not enough cookies in a `setTimeout` that rendered a little message on screen and then another `setTimeout` that set state to false and message disappeared, but I removed it all and made it so if toal cookie value was less than `upgrade.cost` then the buy button for each upgrade would be disabled and it has the not allowed cursor.
 
+I also made a footer with my name and link to github, the github icon uses React Icons.
+
 All things I wanted to do are in `considerations.md`.
 
 ### What I am not happy with
